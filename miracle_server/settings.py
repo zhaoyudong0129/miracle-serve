@@ -24,7 +24,7 @@ SECRET_KEY = '^to-@wl5*0%z!uf6$776vz_mn61$hs#93yzlrk#2@yn_hkj%*g'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['47.93.237.94', ]
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -72,8 +72,9 @@ WSGI_APPLICATION = 'miracle_server.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'miracle',
+        'USER': 'miracle'
     }
 }
 
