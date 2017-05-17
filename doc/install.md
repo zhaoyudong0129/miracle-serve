@@ -25,7 +25,7 @@
         
         su - postgres
         psql
-        \password
+        \password (zyd@...)
         alter user xx with password 'xxx';
         
         
