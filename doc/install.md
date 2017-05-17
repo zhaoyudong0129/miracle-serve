@@ -19,6 +19,15 @@
 - start service
     
         systemctl start postgresql-9.6.service
+        systemctl restart postgresql-9.6.service
+        
+- 设置数据库
+        
+        su - postgres
+        psql
+        \password
+        alter user xx with password 'xxx';
+        
         
 # mac operation
 
@@ -44,6 +53,7 @@
 - \d  show tables
 - \d table_name  列出指定表的结构
 - \c dbname 切换数据库
+- \du 查看角色
 
 
 # install psycopg2
