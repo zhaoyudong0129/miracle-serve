@@ -67,7 +67,7 @@
         pip install gunicorn
         
         
-        gunicorn miracle_server.wsgi
+        gunicorn miracle_server.wsgi --bind 0.0.0.0:80
         
 # 阿里云
 
@@ -80,6 +80,12 @@
 
         sudo groupadd --system webapps
         sudo useradd --system --gid webapps --shell /bin/bash --home /webapps/miracle-serve miracle
+        sudo passwd miracle (zyd@...)
+- 查看组
+
+        cat /etc/group
+        
+
         
 
 ## python virtual enviroment
@@ -97,6 +103,25 @@
 - virtualenv
 
         pyenv virtualenv 3.6.1 miracle
+        
+        
+# nginx
+
+## mac
+
+- install 
+        
+        brew install nginx
+        docroot: /usr/local/var/www
+        brew services start nginx(http://localhost:8080/)
+        install dir: /usr/local/Cellar/nginx/1.12.0
+        config:/usr/local/etc/nginx/nginx.conf
+        
+# supervisor
+
+    
+        
+
         
  
         
