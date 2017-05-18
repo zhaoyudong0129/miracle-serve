@@ -5,4 +5,4 @@ from django.shortcuts import render
 # Create your views here.
 
 def home(request):
-    return HttpResponse("Hello, world. You're at the polls index.")
+    return HttpResponse("Hello, You're at ms-miracle.com.")

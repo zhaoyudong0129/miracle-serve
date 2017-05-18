@@ -16,7 +16,10 @@ Including another URLconf
 from django.conf.urls import url, include
 from django.contrib import admin
 
+from flowers import views
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^flowers/', include('flowers.urls', namespace='flowers'))
+    url(r'^flowers/', include('flowers.urls', namespace='flowers')),
+    url(r'^/', views.home)
 ]

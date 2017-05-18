@@ -119,6 +119,7 @@
         brew services start nginx(http://localhost:8080/)
         install dir: /usr/local/Cellar/nginx/1.12.0
         config:/usr/local/etc/nginx/nginx.conf
+        user=root(第一步所有都在root用户下运行)
         
 # supervisor
 
