@@ -107,6 +107,9 @@
         
 # nginx
 
+        cp dev/nginx.conf /etc/nginx/nginx.conf
+        nginx -s reload
+
 ## mac
 
 - install 
