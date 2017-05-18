@@ -119,6 +119,7 @@
         
 # supervisor
 
+        supervisord -c dev/supervisord.conf
     
         
 
