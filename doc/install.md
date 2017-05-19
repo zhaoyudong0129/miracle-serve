@@ -128,6 +128,14 @@
         
 # git 
         github password (hfy@...)
+        
+# django deploy
+
+- collect static
+        
+        pyhton manage.py collectstatic
+        
+
     
         
 
