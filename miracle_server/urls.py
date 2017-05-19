@@ -22,5 +22,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^flowers/', include('flowers.urls', namespace='flowers')),
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-    url(r'^/', views.home)
+    url(r'^/$', views.home)
 ]
