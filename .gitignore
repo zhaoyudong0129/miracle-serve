@@ -7,3 +7,6 @@ miracle_server.iml
 
 .python-version
 log/
+
+# condensed static file dir
+/static/
