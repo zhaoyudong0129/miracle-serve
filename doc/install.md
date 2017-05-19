@@ -124,6 +124,7 @@
 # supervisor
 
         supervisord -c dev/supervisord.conf
+        supervisorctl -c dev/supervisord.conf
     
         
 
