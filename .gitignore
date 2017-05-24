@@ -10,3 +10,4 @@ log/
 
 # condensed static file dir
 /static/
+/media/
