@@ -22,3 +22,23 @@ class Flower(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Scene(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='uploads/scene', blank=True, null=True)
+
+    def __str__(self):
+        return self.title
+
+
+class Design(models.Model):
+    title = models.CharField(max_length=200, unique=True)
+    description = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='uploads/scene', blank=True, null=True)
+    scenes = models.ManyToManyField(Scene, blank=True)
+    flowers = models.ManyToManyField(Flower, blank=True)
+
+    def __str__(self):
+        return self.title
