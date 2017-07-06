@@ -26,7 +26,7 @@ class Flower(models.Model):
 
 class Scene(models.Model):
     title = models.CharField(max_length=200, unique=True)
-    description = models.TextField(blank=True, null=True)
+    detail = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='uploads/scene', blank=True, null=True)
 
     def __str__(self):
@@ -35,7 +35,7 @@ class Scene(models.Model):
 
 class Design(models.Model):
     title = models.CharField(max_length=200, unique=True)
-    description = models.TextField(blank=True, null=True)
+    detail = models.TextField(blank=True, null=True)
     image = models.ImageField(upload_to='uploads/scene', blank=True, null=True)
     scenes = models.ManyToManyField(Scene, blank=True)
     flowers = models.ManyToManyField(Flower, blank=True)

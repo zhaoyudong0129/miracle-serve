@@ -15,13 +15,19 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework import routers
 
-from flowers import views
+from flowers.views import SceneViewSet
+
+router = routers.DefaultRouter()
+router.register('scenes', SceneViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^flowers/', include('flowers.urls', namespace='flowers')),
     url(r'^weixin/', include('weixin.urls', namespace='weixin')),
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-    url(r'^$', views.home)
+    url(r'^api/', include(router.urls)),
 ]
+
+handler404 = 'miracle_server.views.url_not_found'
+handler500 = 'miracle_server.views.server_error'
