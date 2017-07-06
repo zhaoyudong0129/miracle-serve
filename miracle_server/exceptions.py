@@ -108,5 +108,3 @@ class Duplicate(APIException):
     status_code = status.HTTP_409_CONFLICT
     default_detail = _('Already exists.')
     default_code = 'duplicate'
-
-CallbackFilter
