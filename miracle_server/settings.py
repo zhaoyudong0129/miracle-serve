@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^to-@wl5*0%z!uf6$776vz_mn61$hs#93yzlrk#2@yn_hkj%*g'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True if os.environ.get('DEBUG', True) == 'True' else False
+DEBUG = True if os.environ.get('DEBUG', 'True') == 'True' else False
 
 ALLOWED_HOSTS = ['*']
 
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'oauth2_provider',
     'corsheaders',
     'rest_framework',
+    'ckeditor',
+    'ckeditor_uploader',
 
     'flowers.apps.FlowersConfig'
 ]
@@ -59,7 +61,7 @@ ROOT_URLCONF = 'miracle_server.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -122,7 +124,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+CKEDITOR_UPLOAD_PATH = "uploads/ckeditor/"
 
 CORS_ORIGIN_ALLOW_ALL = True
 

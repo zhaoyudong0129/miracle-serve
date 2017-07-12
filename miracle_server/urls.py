@@ -14,20 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.conf.urls.static import static
 from django.contrib import admin
 from rest_framework import routers
 
-from flowers.views import SceneViewSet
+from flowers.views import SceneViewSet, DesignViewSet
+from miracle_server import settings
 
 router = routers.DefaultRouter()
 router.register('scenes', SceneViewSet)
+router.register('designs', DesignViewSet)
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^weixin/', include('weixin.urls', namespace='weixin')),
-    url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-    url(r'^api/', include(router.urls)),
-]
+                  url(r'^admin/', admin.site.urls),
+                  url(r'^weixin/', include('weixin.urls', namespace='weixin')),
+                  url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
+                  url(r'^api/', include(router.urls)),
+                  url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'miracle_server.views.url_not_found'
 handler500 = 'miracle_server.views.server_error'

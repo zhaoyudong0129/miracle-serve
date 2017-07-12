@@ -6,8 +6,8 @@ from rest_framework import viewsets, permissions, status, exceptions
 from rest_framework.decorators import list_route, detail_route
 from rest_framework.response import Response
 
-from flowers.models import Scene
-from flowers.serializers import SceneSerializer
+from flowers.models import Scene, Design
+from flowers.serializers import SceneSerializer, DesignSerializer
 
 
 def home(request):
@@ -18,14 +18,7 @@ class SceneViewSet(viewsets.ModelViewSet):
     serializer_class = SceneSerializer
     queryset = Scene.objects.all()
 
-    # permission_classes = (permissions.IsAuthenticated,)
 
-    @list_route(methods=['GET'])
-    def follow(self, request):
-        result = {
-            'success': True
-        }
-
-        d = Scene.objects.all()[2]
-
-        return Response(result, status.HTTP_200_OK)
+class DesignViewSet(viewsets.ModelViewSet):
+    serializer_class = DesignSerializer
+    queryset = Design.objects.all()
