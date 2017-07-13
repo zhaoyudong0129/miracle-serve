@@ -32,6 +32,8 @@ def home(request):
 
     if request.method == 'GET':
         if hashcode == signature:
+            logger.info('weixin token check success')
             return HttpResponse(echostr)
         else:
+            logger.info('weixin token check error')
             return HttpResponse('error')
