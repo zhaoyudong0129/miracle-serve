@@ -1,28 +1,37 @@
 import hashlib
 
+import logging
+
+from django.http import HttpResponse
 from django.shortcuts import render
 
-
 # Create your views here.
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework.decorators import api_view
 
+logger = logging.getLogger(__name__)
+
+
+@api_view(['GET', 'POST'])
 def home(request):
-    print(request)
-    try:
-        signature = request.GET['signature']
-        timestamp = request.GET['timestamp']
-        nonce = request.GET['nonce']
-        echostr = request.GET['echostr']
-        token = 'miracle2018'
+    signature = request.query_params.get('signature','none')
+    timestamp = request.query_params.get('timestamp','none')
+    nonce = request.query_params.get('nonce','none')
+    echostr = request.query_params.get('echostr','none')
 
-        list = [token, timestamp, nonce]
-        list.sort()
-        sha1 = hashlib.sha1()
+    logger.info('signature:{},timestamp:{},nonce:{},echostr:{}'.format(signature, timestamp, nonce, echostr))
 
-        map(sha1.update, list)
-        hashcode = sha1.hexdigest()
+    token = 'hello123'
+
+    weixin_list = [token, timestamp, nonce]
+    weixin_list.sort()
+    sha1 = hashlib.sha1()
+
+    map(sha1.update, weixin_list)
+    hashcode = sha1.hexdigest()
+
+    if request.method == 'GET':
         if hashcode == signature:
-            return echostr
+            return HttpResponse(echostr)
         else:
-            return ""
-    except Exception as e:
-        return e
+            return HttpResponse('error')
