@@ -182,14 +182,14 @@ LOGGING = {
     'loggers': {
         'django': {
             'handlers': ['console'],
-            'propagate': True,
+            'propagate': False,
         },
         'django.request': {
             'handlers': ['console'],
             'level': 'ERROR',
             'propagate': False,
         },
-        'miracle_server': {
+        '': {
             'handlers': ['file', 'mail_admins'],
             'level': 'DEBUG',
         }
