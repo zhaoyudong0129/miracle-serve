@@ -73,14 +73,14 @@
 
 ## login 
 
-        ssh root@47.93.237.94 (password hfy@...)
+        ssh root@47.93.237.94 (password hfy@19891112)
 
 
 ## application user
 
         sudo groupadd --system webapps
         sudo useradd --system --gid webapps --shell /bin/bash --home /webapps/miracle-serve miracle
-        sudo passwd miracle (zyd@...)
+        sudo passwd miracle (zyd@19900129)
 - 查看组
 
         cat /etc/group
